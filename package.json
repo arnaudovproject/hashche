@@ -1,0 +1,35 @@
+{
+  "name": "hashche",
+  "version": "1.0.0",
+  "description": "A library for securely encrypting passwords and using them for authentication.",
+  "main": "dist/hashche.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/hashche.js",
+    "dev": "concurrently \"tsc -w\" \"node dist/hashche.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/arnaudovproject/hashche.git"
+  },
+  "keywords": [
+    "hash",
+    "hashche",
+    "password",
+    "crypt",
+    "crypto",
+    "random",
+    "authenticate"
+  ],
+  "author": "Ventsislav Arnaudov",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/arnaudovproject/hashche/issues"
+  },
+  "homepage": "https://github.com/arnaudovproject/hashche#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
