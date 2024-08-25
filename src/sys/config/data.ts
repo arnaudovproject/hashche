@@ -5,6 +5,7 @@ interface DataConfig {
   level: number;
   embed: string;
   fix: string[];
+  DL_SALT: string;
 }
 
 export const data: DataConfig = {
@@ -38,4 +39,6 @@ export const data: DataConfig = {
     "/0xPN630J7",
     "/xjIW83Pc",
   ],
+
+  DL_SALT: "a67f46389cf6fe4bab13582d06d627673fb42b18df85a08b9155c0611ce0be29",
 };

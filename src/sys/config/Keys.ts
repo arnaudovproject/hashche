@@ -1,8 +1,7 @@
-import { createHash } from "crypto";
+import { createHash, Hash } from "crypto";
 
 export class Keys {
-  private createHash = createHash;
-  private swap: string[] = [];
+  private readonly createHash: typeof createHash = createHash;
   private Esp: string[] = [
     // Array of ESP keys
     "0x37408379",
@@ -66,11 +65,6 @@ export class Keys {
     "0x8c2d4e7a",
   ];
 
-  constructor() {
-    this.Esp = this.Esp;
-    this.Jfp = this.Jfp;
-  }
-
   /**
    * Randomly selects an element from the given array.
    * @param key - The array from which a random element is selected.
@@ -85,9 +79,7 @@ export class Keys {
    * @returns The hashed ESP key as a hexadecimal string.
    */
   generateEspKey(): string {
-    const hash = this.createHash("sha256"); // Create a SHA-256 hash instance
-    hash.update(this.randomKey(this.Esp)); // Update the hash with a random ESP key
-    return hash.digest("hex"); // Return the hexadecimal representation of the hash
+    return this.hashKey(this.randomKey(this.Esp));
   }
 
   /**
@@ -95,9 +87,23 @@ export class Keys {
    * @returns The hashed JFP key as a hexadecimal string.
    */
   generateJfpKey(): string {
-    const hash = this.createHash("sha256"); // Create a SHA-256 hash instance
-    hash.update(this.randomKey(this.Jfp)); // Create a SHA-256 hash instance
-    return hash.digest("hex"); // Return the hexadecimal representation of the hash
+    return this.hashKey(this.randomKey(this.Jfp));
+  }
+
+  /**
+   * Hashes the provided key using SHA-256.
+   * @param key - The key to hash.
+   * @returns The hashed key as a hexadecimal string.
+   */
+  private hashKey(key: string): string {
+    try {
+      const hash: Hash = this.createHash("sha256");
+      hash.update(key);
+      return hash.digest("hex");
+    } catch (error) {
+      console.error("Error hashing key:", error);
+      throw new Error("Failed to hash key");
+    }
   }
 
   /**
@@ -106,20 +112,18 @@ export class Keys {
    * @returns An array of swapped keys with "ESP:" and "JFP:" prefixes.
    */
   swapKeys(): string[] {
+    const swap: string[] = [];
+
     // Hash each ESP key and add to the swap list with "ESP:" prefix
     this.Esp.forEach((key) => {
-      const hash = this.createHash("sha256");
-      hash.update(key);
-      this.swap.push(`ESP:${hash.digest("hex")}`);
+      swap.push(`ESP:${this.hashKey(key)}`);
     });
 
     // Hash each JFP key and add to the swap list with "JFP:" prefix
     this.Jfp.forEach((key) => {
-      const hash = this.createHash("sha256");
-      hash.update(key);
-      this.swap.push(`JFP:${hash.digest("hex")}`);
+      swap.push(`JFP:${this.hashKey(key)}`);
     });
 
-    return this.swap; // Return the list of swapped keys
+    return swap;
   }
 }
