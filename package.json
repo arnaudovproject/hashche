@@ -1,7 +1,7 @@
 {
   "name": "hashche",
-  "version": "1.0.1",
-  "description": "A library for securely encrypting passwords and using them for authentication.",
+  "version": "1.1.0",
+  "description": "A secure and easy password encryption and comparison library. Ideal for authentication for all types of access.",
   "main": "dist/hashche.js",
   "scripts": {
     "build": "tsc",
@@ -18,8 +18,12 @@
     "password",
     "crypt",
     "crypto",
-    "random",
-    "authenticate"
+    "login",
+    "secure",
+    "security",
+    "encryption",
+    "authentication",
+    "auth"
   ],
   "author": "Ventsislav Arnaudov",
   "license": "MIT",
