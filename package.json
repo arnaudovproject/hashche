@@ -1,7 +1,7 @@
 {
   "name": "hashche",
-  "version": "1.1.1",
-  "description": "A secure and easy password encryption and comparison library. Ideal for authentication for all types of access.",
+  "version": "1.2.1",
+  "description": "A secure and fast library for password encryption, password comparison and authentication. It also offers highly secure and error-free UUID generation that is guaranteed to never be duplicated.",
   "main": "dist/hashche.js",
   "scripts": {
     "build": "tsc",
