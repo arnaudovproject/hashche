@@ -117,6 +117,7 @@ const { token } = require("hashche");
 const mytoken = token();
 
 console.log(mytoken);
+// a178b127549632b484f5e7b48cf35d96679b1e5ce562dd7068fccee9de3229e5
 ```
 
 TypeScript Example
@@ -127,6 +128,7 @@ import { token } from "hashche";
 const mytoken = token();
 
 console.log(mytoken);
+// 4c852149052d53523e7ade5748c3ea04e0d5928c79de9ee0bc3d478c5f1a8f31
 ```
 
 In encryption and comparison, the salt is optional. If you don’t provide one, it will automatically generate a default salt assigned to it. However, it is good practice to use a custom-generated salt, which should be the same for both encryption and password comparison. It would be best to use dotenv to store the salt in an environment variable and pass it as a parameter.
