@@ -24,12 +24,12 @@ Install hashche with npm
 JavaScript Example
 
 ```javascript
-const { hash } = require("hashche");
+const { hashche } = require("hashche");
 
 let salt = "081395d4448bc815a8c2e6817904e86e3a11bc3a13ecb68a34e3f02c51b8180e"; // Optional
 let password = "myPassword1234";
 
-const crypt = hash.crypt(password, salt);
+const crypt = hashche.crypt(password, salt);
 
 console.log(crypt);
 // $24$12#41c4ebcbd890e2bd54c31e8a77d666e41b6db0406357ae8872f7333916ad34eb$17/0xJ4h7Ye2
@@ -38,12 +38,12 @@ console.log(crypt);
 TypeScript Example
 
 ```typescript
-import { hash } from "hashche";
+import { hashche } from "hashche";
 
 let salt = "081395d4448bc815a8c2e6817904e86e3a11bc3a13ecb68a34e3f02c51b8180e"; // Optional
 let password = "myPassword1234";
 
-const crypt = hash.crypt(password, salt);
+const crypt = hashche.crypt(password, salt);
 
 console.log(crypt);
 // $24$12#10ef99c89a43da3d65e615b120d95d76abd36c2d6c4b15e161ee4fb41505565a$17/0xPN630J7
@@ -54,14 +54,14 @@ console.log(crypt);
 JavaScript Example
 
 ```javascript
-const { hash } = require("hashche");
+const { hashche } = require("hashche");
 
 let salt = "081395d4448bc815a8c2e6817904e86e3a11bc3a13ecb68a34e3f02c51b8180e"; // Optional
 let password = "myPassword1234";
 let dbPassword =
   "$24$12#c502f1babe02e100c53a12414961a2218e9b1f2eb9882d3160cd441eaf719fc4$17/0x7hf4P3J";
 
-const compare = hash.compare(password, dbPassword, salt);
+const compare = hashche.compare(password, dbPassword, salt);
 
 console.log(compare);
 // true OR false
@@ -70,14 +70,14 @@ console.log(compare);
 TypeScript Example
 
 ```typescript
-import { hash } from "hashche";
+import { hashche } from "hashche";
 
 let salt = "081395d4448bc815a8c2e6817904e86e3a11bc3a13ecb68a34e3f02c51b8180e"; // Optional
 let password = "myPassword1234";
 const dbPassword =
   "$24$12#e527df8ca434fa9878df1326925b316c8acc60de800baf5eabfb1359175a08ca$17/0xLpb75gW";
 
-const compare = hash.compare(password, dbPassword, salt);
+const compare = hashche.compare(password, dbPassword, salt);
 
 console.log(compare);
 // true OR false

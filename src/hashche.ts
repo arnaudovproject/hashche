@@ -11,4 +11,4 @@ import { generateUuid } from "./sys/utility/Uuid";
 import { generateToken } from "./sys/utility/Token";
 
 // Exporting the 'hashche' instance so it can be used by external modules
-export { hashche as hash, generateUuid as uuid, generateToken as token };
+export { hashche, generateUuid as uuid, generateToken as token };
